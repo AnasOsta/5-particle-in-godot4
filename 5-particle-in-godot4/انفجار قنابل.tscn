@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvun7v13rixh2"]
+
+[ext_resource type="Texture2D" uid="uid://d37xua5j0sbwl" path="res://Explosion_Sheet.png" id="1_7xvt4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xuu2l"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_lxiyh"]
+offsets = PackedFloat32Array(0, 0.355556, 0.4, 0.644444, 0.666667, 0.78344, 1)
+colors = PackedColorArray(0.877703, 0.875134, 0.0374877, 1, 0.898539, 0.896407, 0.201471, 1, 1, 0.431373, 0, 1, 1, 0.431373, 0, 1, 0.137255, 0.137255, 0.137255, 1, 0.137255, 0.137255, 0.137255, 1, 0.137255, 0.137255, 0.137255, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nbt7u"]
+gradient = SubResource("Gradient_lxiyh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6ryd5"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 128.0
+particle_flag_disable_z = true
+gravity = Vector3(0, -100, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_max = 720.0
+scale_max = 4.0
+color_ramp = SubResource("GradientTexture1D_nbt7u")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[node name="انفجار قنابل" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_xuu2l")
+position = Vector2(-110, -106)
+process_material = SubResource("ParticleProcessMaterial_6ryd5")
+texture = ExtResource("1_7xvt4")
+lifetime = 0.51
+explosiveness = 0.51

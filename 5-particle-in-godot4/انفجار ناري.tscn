@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://cs7n6chrmx1g"]
+
+[ext_resource type="Texture2D" uid="uid://dhuukw3saimbt" path="res://Flame.png" id="1_pmy0v"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6p8k0"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_a3lga"]
+offsets = PackedFloat32Array(0, 0.0962963, 0.881481, 0.896296)
+colors = PackedColorArray(0.882353, 0.85098, 0, 0, 1, 0.690196, 0, 1, 1, 0.247059, 0, 1, 1, 0.270588, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sutj8"]
+gradient = SubResource("Gradient_a3lga")
+width = 100
+
+[sub_resource type="Curve" id="Curve_7tcgt"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.783132, 100), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_e48ox"]
+curve = SubResource("Curve_7tcgt")
+
+[sub_resource type="Curve" id="Curve_4bcwx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.716868, 0.809091), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_u0wdd"]
+curve = SubResource("Curve_4bcwx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qw7lu"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+angular_velocity_min = 100.0
+angular_velocity_max = 100.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_curve = SubResource("CurveTexture_e48ox")
+angle_min = 720.0
+angle_max = 720.0
+scale_curve = SubResource("CurveTexture_u0wdd")
+color_ramp = SubResource("GradientTexture1D_sutj8")
+
+[node name="انفجار ناري" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_6p8k0")
+position = Vector2(102, 77)
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_qw7lu")
+texture = ExtResource("1_pmy0v")
+one_shot = true
+explosiveness = 0.72

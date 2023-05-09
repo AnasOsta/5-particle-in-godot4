@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://corfkt6xuj8ro"]
+
+[ext_resource type="PackedScene" uid="uid://c4h4qghxiolet" path="res://نار.tscn" id="1_lmc7w"]
+[ext_resource type="PackedScene" uid="uid://cs7n6chrmx1g" path="res://انفجار ناري.tscn" id="2_vx50f"]
+[ext_resource type="PackedScene" uid="uid://bvun7v13rixh2" path="res://انفجار قنابل.tscn" id="3_53u2x"]
+[ext_resource type="PackedScene" uid="uid://b5npp406ut2pf" path="res://تجمعة الطاقة.tscn" id="4_j186x"]
+[ext_resource type="PackedScene" uid="uid://br5dbmw15gyyu" path="res://تلاشي الصور.tscn" id="5_xdvxb"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="نار" parent="." instance=ExtResource("1_lmc7w")]
+position = Vector2(188, 109)
+emitting = false
+
+[node name="انفجار ناري" parent="." instance=ExtResource("2_vx50f")]
+position = Vector2(729, 107)
+
+[node name="انفجار قنابل" parent="." instance=ExtResource("3_53u2x")]
+position = Vector2(181, 311)
+emitting = false
+
+[node name="تجمعة الطاقة" parent="." instance=ExtResource("4_j186x")]
+position = Vector2(744, 289)
+emitting = false
+
+[node name="تلاشي الصور" parent="." instance=ExtResource("5_xdvxb")]
+position = Vector2(451, 439)
